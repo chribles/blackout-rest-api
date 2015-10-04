@@ -1,0 +1,41 @@
+{
+  "name": "blackout-rest-api",
+  "version": "1.0.0",
+  "description": "Node.js-Based RESTFul services for Blackout App",
+  "main": "index.js",
+  "scripts": {
+    "start": "brunch watch --server",
+    "build": "brunch build",
+    "release": "brunch build -o"
+  },
+  "repository": "",
+  "keywords": [
+    "api",
+    "list",
+    "library"
+  ],
+  "author": "chrisdamba",
+  "license": "",
+  "dependencies": {
+    "brunch": "~1.7.0",
+    "javascript-brunch": ">= 1.0 < 1.7",
+    "coffee-script-brunch": ">= 1.0 < 1.7",    
+    "body-parser": "1.9.0",
+    "method-override": "~2.3.0",
+    "errorhandler":"~1.2.2",
+    "coffee-script": ">= 1.3.3", 
+    "express": "^4.9.5",
+    "express-session": "^1.9.3",
+    "mongoose": "~3.8.3",
+    "mongodb":"~1.4.23",
+    "path":"*",
+    "bcrypt-nodejs":"*",
+    "connect-mongo":"*" ,    
+    "connect-flash":"*",    
+    "shortid": "~2.1.3",
+    "request": "~2.53.0"
+  },
+  "devDependencies": {   
+    "mongoose": "~3.8.3"    
+  }
+}
