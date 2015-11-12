@@ -21,8 +21,17 @@ exports.list = (req, res, next) ->
 		.limit limit
 		.skip skip
 		.sort "name"
-		.exec (err, schedules) ->
-			unless err				
+		.exec (err, results) ->
+			unless err
+				now = new Date()				
+				schedules = 
+					query:
+						count: results.length
+						created: now
+						lang: "en-GB"
+						results:
+							place: results
+
 				res.json schedules
 			else
 				next err		
