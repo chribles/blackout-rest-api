@@ -14,7 +14,10 @@ MONGODB_URI = "#{db_access.auth.host}#{db_access.auth.name}"
 
 # Configuration
 app.set 'storage-uri', process.env.MONGOHQ_URL or process.env.MONGOLAB_URI or MONGODB_URI
-
+app.all '/*', (req, res, next) ->	
+	res.header 'Access-Control-Allow-Origin', '*'
+	res.header 'Access-Control-Allow-Headers', 'X-Requested-With,content-type'	
+	next()
 
 # Setup the MongoDB connection
 mongoose.connect app.get('storage-uri'), { db: {safe: true} }, (err) ->
