@@ -1,3 +1,4 @@
+mongoose = require "mongoose"
 Location = require "../models/data/location"
 
 exports.get = (req, res, next) ->
@@ -13,11 +14,13 @@ exports.list = (req, res, next) ->
 	skip = req.query.skip || 0
 	limit = req.query.take || 20
 	search = req.query.search 
+	ids = req.query.ids	
 	
 	options = { $or: [{ "name": { $regex : new RegExp(search, "i") } }, { "region": { $regex : new RegExp(search, "i") } }] } 
 	options = {}  if (typeof(search) == "undefined") 
+	options = { "_id": { "$in": ids.split(",") }} if (typeof(ids) != "undefined") 
 	
-	query = Location.find(options)		
+	Location.find(options)		
 		.limit limit
 		.skip skip
 		.sort "name"

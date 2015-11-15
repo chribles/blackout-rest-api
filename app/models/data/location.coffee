@@ -18,10 +18,6 @@ scheduleSchema =
 		minute: Number
 
 attributes =
-	_id:
-		type: String
-		unique: true		
-		default: shortId.generate
 	name:
 		type: String		
 		index: true
